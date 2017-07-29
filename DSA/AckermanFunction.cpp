@@ -29,7 +29,7 @@ int ackerman(int x, int y)
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	int x = 3, y = 2;
+	int x = 3, y = 4;
 	cout<< "ackerman("<<x<<", "<<y<<") is "<<ackerman(x, y)<<endl;
 	return 0;
 }
