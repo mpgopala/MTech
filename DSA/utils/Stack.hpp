@@ -20,7 +20,7 @@ public:
 	Stack() : m_top(nullptr) {}
 	virtual ~Stack() {}
 
-	bool isEmpty() const { return m_top != nullptr; }
+	bool isEmpty() const { return m_top == nullptr; }
 	void push(const T &t)
 	{
 		Node<T> *temp = new Node<T>(t);

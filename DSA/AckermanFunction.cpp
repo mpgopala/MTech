@@ -6,6 +6,8 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+#include "AckermanFunction.hpp"
+
 #include <iostream>
 using namespace std;
 
@@ -25,11 +27,4 @@ int ackerman(int x, int y)
 		return ackerman(x - 1, 1);
 		
 	return ackerman(x - 1, ackerman(x, y-1));
-}
-
-int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	int x = 3, y = 4;
-	cout<< "ackerman("<<x<<", "<<y<<") is "<<ackerman(x, y)<<endl;
-	return 0;
 }
