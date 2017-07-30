@@ -5,13 +5,13 @@
  *      Author: gsharma
  */
 
-#include "AckermanFunction.hpp"
-
-#include "utils/CircularLinkedList.hpp"
-#include "utils/LinkedList.hpp"
-#include "utils/Stack.hpp"
+#include "include/AckermanFunction.hpp"
 
 #include <iostream>
+
+#include "include/CircularLinkedList.hpp"
+#include "include/LinkedList.hpp"
+#include "include/Stack.hpp"
 using namespace std;
 
 void testAckermanFunction(int x, int y)
@@ -28,6 +28,8 @@ void testStack()
 	stack.pop();
 
 	cout<<"Top of stack should be 2. It is "<<stack.top()<<endl;
+
+	stack.display();
 }
 
 int main()

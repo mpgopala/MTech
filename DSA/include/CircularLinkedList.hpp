@@ -11,7 +11,7 @@ public:
 	CircularLinkedList() : m_head(nullptr) {}
 	virtual ~CircularLinkedList() {}
 
-	bool isEmpty() { return m_head == nullptr; }
+	bool isEmpty() const { return m_head == nullptr; }
 
 	void insert(const T& t)
 	{
@@ -65,6 +65,19 @@ public:
 			delete temp;
 			temp = nullptr;
 		}
+	}
+
+	void display() const
+	{
+		if(isEmpty())
+			return;
+
+		Node<T> *temp = m_head;
+		do
+		{
+			print(temp->t);
+			temp = temp->next;
+		}while(temp != m_head);
 	}
 };
 

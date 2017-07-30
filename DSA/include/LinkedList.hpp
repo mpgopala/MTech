@@ -10,6 +10,7 @@
 
 
 #include "Node.hpp"
+#include "Utils.hpp"
 
 template <typename T>
 class LinkedList
@@ -20,7 +21,7 @@ public:
 	virtual ~LinkedList() {}
 
 
-	bool isEmpty() { return m_head == nullptr; }
+	bool isEmpty() const { return m_head == nullptr; }
 
 	void insert(const T& t)
 	{
@@ -79,6 +80,17 @@ public:
 
 			delete temp;
 			temp = nullptr;
+		}
+	}
+
+	void display() const
+	{
+		if(isEmpty())
+			return;
+
+		for(Node<T> *temp = m_head; temp != nullptr; temp = temp->next)
+		{
+			print(temp->t);
 		}
 	}
 

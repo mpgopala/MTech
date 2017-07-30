@@ -8,8 +8,8 @@
 #ifndef STACK_HPP_
 #define STACK_HPP_
 
-#include "Node.hpp"
-#include "Exception.hpp"
+#include "../include/Exception.hpp"
+#include "../include/Node.hpp"
 
 template <typename T>
 class Stack
@@ -49,6 +49,17 @@ public:
 		if(isEmpty())
 			throw new Exception();
 		return m_top->t;
+	}
+
+	void display() const
+	{
+		if(isEmpty())
+			return;
+
+		for(Node<T> *temp = m_top; temp != nullptr; temp = temp->next)
+		{
+			print(temp->t);
+		}
 	}
 };
 
