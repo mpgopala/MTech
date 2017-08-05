@@ -8,8 +8,7 @@
 #ifndef STACK_HPP_
 #define STACK_HPP_
 
-#include "../include/Exception.hpp"
-#include "../include/Node.hpp"
+#include "Node.hpp"
 
 template <typename T>
 class Stack
@@ -36,7 +35,7 @@ public:
 	const T pop()
 	{
 		if(isEmpty())
-			return;
+			return T();
 
 		Node<T> *temp = m_top;
 		const T retVal = temp->t;

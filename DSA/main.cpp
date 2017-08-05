@@ -12,6 +12,7 @@
 #include "include/CircularLinkedList.hpp"
 #include "include/LinkedList.hpp"
 #include "include/Stack.hpp"
+#include "include/Queue.hpp"
 #include "include/PostFix.hpp"
 
 using namespace std;
@@ -34,20 +35,34 @@ void testStack()
 	stack.display();
 }
 
+void testQueue()
+{
+	string queueStr = "qwerty";
+
+	Queue<char> queue;
+	for(size_t i = 0; i < queueStr.length(); i++)
+		queue.enque(queueStr[i]);
+
+	cout<<"Queue is ";
+	queue.display();
+}
+
 void testPostFix()
 {
-	string postFix = "23+";
+	string postFix = "234*^";
 	PostFix p(postFix);
-	cout<<"Postfix expression value = "<<p.evaluate()<<endl;
+	cout<<"Postfix expression "<<postFix<<". Value = "<<p.evaluate()<<endl;
 }
 
 int main()
 {
-	testAckermanFunction(3, 4);
+//	testAckermanFunction(3, 4);
 
-	testStack();
+//	testStack();
 
-	testPostFix();
+//	testPostFix();
+
+	testQueue();
 
 	return 0;
 }
