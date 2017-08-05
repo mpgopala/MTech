@@ -33,22 +33,18 @@ public:
 		}
 	}
 
-	void pop()
+	const T pop()
 	{
 		if(isEmpty())
 			return;
 
 		Node<T> *temp = m_top;
+		const T retVal = temp->t;
 		m_top = m_top->next;
 		delete temp;
 		temp = nullptr;
-	}
 
-	const T top()
-	{
-		if(isEmpty())
-			throw new Exception();
-		return m_top->t;
+		return retVal;
 	}
 
 	void display() const
