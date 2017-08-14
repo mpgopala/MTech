@@ -12,14 +12,25 @@ template <typename T>
 class Node
 {
 public:
-	Node(const T &t, Node *nxt = nullptr)
+	Node(const T &t, Node<T> *nxt = nullptr)
 	{
-		this->t = t;
+		value = t;
 		this->next = nxt;
 	}
-	T t;
-	Node *next;
+	T value;
+	Node<T> *next;
 };
 
+template <typename T>
+class BSTNode
+{
+public:
+	BSTNode(const T& t, BSTNode<T> *l = nullptr, BSTNode<T> *r=nullptr):left(l), right(r)
+	{
+		value = t;
+	}
+	T value;
+	BSTNode<T> *left, *right;
+};
 
 #endif /* NODE_HPP_ */

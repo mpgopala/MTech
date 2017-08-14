@@ -38,7 +38,7 @@ public:
 			return T();
 
 		Node<T> *temp = m_top;
-		const T retVal = temp->t;
+		const T retVal = temp->value;
 		m_top = m_top->next;
 		delete temp;
 		temp = nullptr;
@@ -53,7 +53,7 @@ public:
 
 		for(Node<T> *temp = m_top; temp != nullptr; temp = temp->next)
 		{
-			print(temp->t);
+			print(temp->value);
 		}
 	}
 };

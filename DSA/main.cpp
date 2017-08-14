@@ -14,6 +14,7 @@
 #include "include/Stack.hpp"
 #include "include/Queue.hpp"
 #include "include/PostFix.hpp"
+#include "include/BinarySearchTree.hpp"
 
 using namespace std;
 
@@ -54,6 +55,16 @@ void testPostFix()
 	cout<<"Postfix expression "<<postFix<<". Value = "<<p.evaluate()<<endl;
 }
 
+void testBST()
+{
+	vector<int> v = {3,5,4,2,6,8,7,9};
+	BinarySearchTree<int> bst;
+	for(int i : v)
+		bst.insert(i);
+
+	bst.inorder();
+}
+
 int main()
 {
 //	testAckermanFunction(3, 4);
@@ -62,7 +73,9 @@ int main()
 
 //	testPostFix();
 
-	testQueue();
+//	testQueue();
+
+	testBST();
 
 	return 0;
 }

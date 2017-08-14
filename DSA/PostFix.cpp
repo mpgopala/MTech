@@ -34,6 +34,8 @@ double PostFix::evaluate()
 		case PostFix::OPERATOR:
 			evaluate(postfixExpression[i]);
 			break;
+		case PostFix::UNKNOWN:
+			break;
 		}
 	}
 
