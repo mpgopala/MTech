@@ -62,7 +62,14 @@ void testBST()
 	for(int i : v)
 		bst.insert(i);
 
-	bst.inorder();
+	print("InOrder: ");
+	bst.inOrder();
+
+	print("\nPreOrder: ");
+	bst.preOrder();
+
+	print("\nPostOrder: ");
+	bst.postOrder();
 }
 
 int main()

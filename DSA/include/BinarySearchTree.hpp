@@ -22,7 +22,9 @@ class BinarySearchTree
 	BSTNode<T> * remove(BSTNode<T> *root, const T &t);
 
 	BSTNode<T> * minValueNode(BSTNode<T>* node);
-	void inorder(BSTNode<T> *node) const;
+	void inOrder(BSTNode<T> *node) const;
+	void preOrder(BSTNode<T> *node) const;
+	void postOrder(BSTNode<T> *node) const;
 public:
 	BinarySearchTree():root(nullptr) {}
 	virtual ~BinarySearchTree() { clear(root); }
@@ -30,7 +32,10 @@ public:
 	void insert(const T &t) { root = insert(root, t); }
 	void remove(const T &t) { remove(root, t); }
 
-	void inorder() const { inorder(root); }
+	void inOrder() const { inOrder(root); }
+	void preOrder() const { preOrder(root); }
+	void postOrder() const { postOrder(root); }
+
 };
 
 template <typename T>
@@ -49,24 +54,18 @@ inline void BinarySearchTree<T>::clear(BSTNode<T> *root)
 template<typename T>
 inline BSTNode<T> * BinarySearchTree<T>::insert(BSTNode<T> *node, const T& t)
 {
+	if(node == nullptr)
+	{
+		BSTNode<T> *temp = new BSTNode<T>(t);
+		return temp;
+	}
+
 	if(t < node->value)
 	{
-		if(node->left == nullptr)
-		{
-			BSTNode<T> *temp = new BSTNode<T>(t);
-			node->left = temp;
-			return node;
-		}
 		node->left = insert(node->left, t);
 	}
 	else if(t > node->value)
 	{
-		if(node->right == nullptr)
-		{
-			BSTNode<T> *temp = new BSTNode<T>(t);
-			node->right = temp;
-			return node;
-		}
 		node->right = insert(node->right, t);
 	}
 
@@ -134,14 +133,36 @@ inline BSTNode<T> * BinarySearchTree<T>::remove(BSTNode<T> *node, const T& key)
 }
 
 template <typename T>
-void BinarySearchTree<T>::inorder(BSTNode<T> *node) const
+void BinarySearchTree<T>::inOrder(BSTNode<T> *node) const
 {
 	if(node == nullptr)
 		return;
 
-	inorder(node->left);
+	inOrder(node->left);
 	print(node->value);
-	inorder(node->right);
+	inOrder(node->right);
+}
+
+template <typename T>
+void BinarySearchTree<T>::preOrder(BSTNode<T> *node) const
+{
+	if(node == nullptr)
+		return;
+
+	print(node->value);
+	preOrder(node->left);
+	preOrder(node->right);
+}
+
+template <typename T>
+void BinarySearchTree<T>::postOrder(BSTNode<T> *node) const
+{
+	if(node == nullptr)
+		return;
+
+	postOrder(node->left);
+	postOrder(node->right);
+	print(node->value);
 }
 
 #endif /* INCLUDE_BINARYSEARCHTREE_HPP_ */
