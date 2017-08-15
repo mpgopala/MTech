@@ -15,6 +15,7 @@
 #include "include/Queue.hpp"
 #include "include/PostFix.hpp"
 #include "include/BinarySearchTree.hpp"
+#include "include/AVLTree.hpp"
 
 using namespace std;
 
@@ -60,9 +61,15 @@ void testBST()
 	vector<int> v = {3,5,4,2,6,8,7,9};
 	BinarySearchTree<int> bst;
 	for(int i : v)
+	{
 		bst.insert(i);
+		print(bst.height());
+	}
 
-	print("InOrder: ");
+	print("\nHeight = ");
+	print(bst.height());
+
+	print("\nInOrder: ");
 	bst.inOrder();
 
 	print("\nPreOrder: ");
@@ -70,6 +77,29 @@ void testBST()
 
 	print("\nPostOrder: ");
 	bst.postOrder();
+}
+
+void testAVLTree()
+{
+	vector<int> v = {3,5,4,2,6,8,7,9};
+	AVLTree<int> tree;
+	for(int i : v)
+	{
+		tree.insert(i);
+		print(tree.height());
+	}
+
+	print("\nHeight = ");
+	print(tree.height());
+
+	print("\nInOrder: ");
+	tree.inOrder();
+
+	print("\nPreOrder: ");
+	tree.preOrder();
+
+	print("\nPostOrder: ");
+	tree.postOrder();
 }
 
 int main()
@@ -84,6 +114,8 @@ int main()
 
 	testBST();
 
+	cout<<endl;
+	testAVLTree();
 	return 0;
 }
 

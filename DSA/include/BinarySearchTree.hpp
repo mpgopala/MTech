@@ -15,6 +15,7 @@
 template <typename T>
 class BinarySearchTree
 {
+protected:
 	BSTNode<T> *root;
 
 	void clear(BSTNode<T> *root);
@@ -25,6 +26,9 @@ class BinarySearchTree
 	void inOrder(BSTNode<T> *node) const;
 	void preOrder(BSTNode<T> *node) const;
 	void postOrder(BSTNode<T> *node) const;
+
+	int height(BSTNode<T> *node);
+
 public:
 	BinarySearchTree():root(nullptr) {}
 	virtual ~BinarySearchTree() { clear(root); }
@@ -36,6 +40,7 @@ public:
 	void preOrder() const { preOrder(root); }
 	void postOrder() const { postOrder(root); }
 
+	int height() { return height(BinarySearchTree<T>::root); }
 };
 
 template <typename T>
@@ -165,4 +170,16 @@ void BinarySearchTree<T>::postOrder(BSTNode<T> *node) const
 	print(node->value);
 }
 
+
+template <typename T>
+int BinarySearchTree<T>::height(BSTNode<T> *node)
+{
+	if(node == nullptr)
+		return 0;
+
+	int leftHeight = height(node->left);
+	int rightHeight = height(node->right);
+
+	return (leftHeight > rightHeight?leftHeight:rightHeight) + 1;
+}
 #endif /* INCLUDE_BINARYSEARCHTREE_HPP_ */
