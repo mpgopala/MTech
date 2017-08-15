@@ -58,7 +58,7 @@ void testPostFix()
 
 void testBST()
 {
-	vector<int> v = {3,5,4,2,6,8,7,9};
+	vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 	BinarySearchTree<int> bst;
 	for(int i : v)
 	{
@@ -81,7 +81,7 @@ void testBST()
 
 void testAVLTree()
 {
-	vector<int> v = {3,5,4,2,6,8,7,9};
+	vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 	AVLTree<int> tree;
 	for(int i : v)
 	{
