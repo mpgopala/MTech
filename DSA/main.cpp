@@ -16,6 +16,7 @@
 #include "include/PostFix.hpp"
 #include "include/BinarySearchTree.hpp"
 #include "include/AVLTree.hpp"
+#include "include/MinHeap.hpp"
 
 using namespace std;
 
